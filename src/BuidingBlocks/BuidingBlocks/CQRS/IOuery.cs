@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace BuidingBlocks.CQRS;
 
-public interface IOuery<out TResponse>  
-    : IRequest<TResponse>
-    where TResponse:notnull
+public interface IQuery<out TResponse> : IRequest<TResponse>
+    where TResponse : notnull
 {
-
 }
