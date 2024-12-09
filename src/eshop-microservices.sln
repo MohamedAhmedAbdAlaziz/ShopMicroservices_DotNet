@@ -7,11 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{6D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{D119FE88-DF33-4593-8907-08F6BCE336FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{DC9FE7D7-3A9D-4857-9109-42637A183CB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{DC9FE7D7-3A9D-4857-9109-42637A183CB7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuidingBlocks", "BuidingBlocks", "{6C4A2B6F-A231-448B-8C5A-A0B075E5E10F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{6C4A2B6F-A231-448B-8C5A-A0B075E5E10F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuidingBlocks", "BuidingBlocks\BuidingBlocks\BuidingBlocks.csproj", "{424788C3-A76B-40C5-98C7-966D7AB5EDC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildingBlocks", "BuidingBlocks\BuidingBlocks\BuildingBlocks.csproj", "{424788C3-A76B-40C5-98C7-966D7AB5EDC5}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F4E55121-72C5-422F-A3A2-E61CBC506BAD}"
 EndProject

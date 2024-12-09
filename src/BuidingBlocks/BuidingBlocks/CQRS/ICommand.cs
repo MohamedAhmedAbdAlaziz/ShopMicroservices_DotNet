@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using System.Net;
 
-namespace BuidingBlocks.CQRS;
+namespace BuildingBlocks.CQRS;
 
 public interface ICommand : ICommand <Unit>
 {

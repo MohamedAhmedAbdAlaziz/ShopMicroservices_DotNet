@@ -1,4 +1,4 @@
-﻿using BuidingBlocks.CQRS;
+﻿using BuildingBlocks.CQRS;
 using Catalog.API.Models;
 using FluentValidation;
 using Marten;

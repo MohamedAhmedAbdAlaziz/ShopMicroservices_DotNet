@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BuidingBlocks.CQRS;
+namespace BuildingBlocks.CQRS;
 
 public interface IQuery<out TResponse> : IRequest<TResponse>
     where TResponse : notnull
