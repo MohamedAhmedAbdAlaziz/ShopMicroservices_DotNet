@@ -1,4 +1,5 @@
 using BuildingBlocks.Behavior;
+using BuildingBlocks.Exceptions.Handler;
 using FluentValidation;
 using Marten;
 
@@ -18,9 +19,12 @@ builder.Services.AddMarten(opt =>
 {
     opt.Connection(builder.Configuration.GetConnectionString("Database")!);
 }).UseLightweightSessions();
+builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 
 var app = builder.Build();
 
 //app.MapGet("/", () => "Hello World!");
 app.MapCarter();
+app.UseExceptionHandler(options => { });
+
 app.Run();
