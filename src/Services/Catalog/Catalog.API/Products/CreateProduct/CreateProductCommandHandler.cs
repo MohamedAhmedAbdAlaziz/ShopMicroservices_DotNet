@@ -3,6 +3,7 @@ using Catalog.API.Models;
 using FluentValidation;
 using Marten;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using System.Windows.Input;
 
 namespace Catalog.API.Products.CreateProduct
@@ -22,16 +23,11 @@ namespace Catalog.API.Products.CreateProduct
             RuleFor(x => x.Price).NotEmpty().WithMessage("Price is required");
         }
 
-        public class CreateProductHandler(IDocumentSession documentSession, IValidator<CreateProductCommand> validator) : ICommandHandler<CreateProductCommand, CreateProductResult>
+        public class CreateProductCommandHandler(IDocumentSession documentSession , ILogger<CreateProductCommandHandler> logger ) : ICommandHandler<CreateProductCommand, CreateProductResult>
         {
             public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
             {
-                var result = await validator.ValidateAsync(command, cancellationToken);
-                var errors = result.Errors.Select(x => x.ErrorMessage).ToList();
-                if (errors.Any())
-                {
-                    throw new ValidationException(errors.FirstOrDefault());
-                }
+                logger.LogInformation("CreateProductCommandHanlder called with {@command}", command);
                 var product = new Product
                 {
                     Name = command.Name,

@@ -12,7 +12,7 @@ namespace Catalog.API.Products.CreateProduct
     public class CreateProductEndPoint : ICarterModule
     {
         public void AddRoutes(IEndpointRouteBuilder app)
-        {
+     {
             app.Map("/products",
                async (CreateProductRequest request, ISender sender) =>
                {
