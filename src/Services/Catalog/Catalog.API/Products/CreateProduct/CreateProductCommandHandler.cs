@@ -23,12 +23,11 @@ namespace Catalog.API.Products.CreateProduct
             RuleFor(x => x.Price).NotEmpty().WithMessage("Price is required");
         }
 
-        public class CreateProductCommandHandler(IDocumentSession documentSession , ILogger<CreateProductCommandHandler> logger ) : ICommandHandler<CreateProductCommand, CreateProductResult>
+        public class CreateProductCommandHandler(IDocumentSession documentSession   ) : ICommandHandler<CreateProductCommand, CreateProductResult>
         {
             public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
             {
-                logger.LogInformation("CreateProductCommandHanlder called with {@command}", command);
-                var product = new Product
+                 var product = new Product
                 {
                     Name = command.Name,
                     Category = command.Category,
