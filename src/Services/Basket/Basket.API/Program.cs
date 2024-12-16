@@ -1,8 +1,7 @@
 using BuildingBlocks.Behavior;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.DependencyInjection;
+ 
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,8 +23,7 @@ builder.Services.AddMarten(opts =>
 //Cross-Cutting Services
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 
-builder.Services.AddHealthChecks()
-    .AddNpgSql(builder.Configuration.GetConnectionString("Database")!);
+
 //  .AddRedis(builder.Configuration.GetConnectionString("Redis")!);
 builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 builder.Services.Decorate<IBasketRepository, CachedBasketRepository>();
@@ -40,6 +38,10 @@ builder.Services.AddStackExchangeRedisCache(options =>
 //    var basketRepo = provider.GetRequiredService<BasketRepository>();
 //    return new CachedBasketRepository(basketRepo, provider.GetRequiredService<IDistributedCache>());
 //});
+builder.Services.AddHealthChecks()
+    .AddNpgSql(builder.Configuration.GetConnectionString("Database")!)
+    .AddRedis(builder.Configuration.GetConnectionString("Redis")!);
+
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");

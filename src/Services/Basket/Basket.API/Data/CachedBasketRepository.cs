@@ -20,7 +20,7 @@ public class CachedBasketRepository
 
     public async Task<ShoppingCart> StoreBasket(ShoppingCart basket, CancellationToken cancellationToken = default)
     {
-        await repository.StoreBasket(basket, cancellationToken);
+        await repository.StoreBasket(basket, cancellationToken); 
 
         await cache.SetStringAsync(basket.UserName, JsonSerializer.Serialize(basket), cancellationToken);
 
