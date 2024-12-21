@@ -1,4 +1,5 @@
 using BuildingBlocks.Behavior;
+using Discount.Grpc;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
  
@@ -21,6 +22,10 @@ builder.Services.AddMarten(opts =>
     opts.Schema.For<ShoppingCart>().Identity(x => x.UserName);
 }).UseLightweightSessions();
 //Cross-Cutting Services
+builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(option =>
+{
+    option.Address = new Uri(builder.Configuration["GrpcSetting:DiscountUrl"]!);
+});
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 
 
