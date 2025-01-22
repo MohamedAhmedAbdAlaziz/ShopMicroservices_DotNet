@@ -2,7 +2,9 @@ using BuildingBlocks.Behavior;
 using Discount.Grpc;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
- 
+using BuildingBlocks.Messaging.MassTransit;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,10 @@ builder.Services.AddMediatR(config =>
     config.AddOpenBehavior(typeof(ValidationBehavior<,>));
     config.AddOpenBehavior(typeof(LoggingBehavior<,>));
 });
+
+
+//Async Communication Services
+builder.Services.AddMessageBroker(builder.Configuration);
 
 //Data Services
 builder.Services.AddMarten(opts =>

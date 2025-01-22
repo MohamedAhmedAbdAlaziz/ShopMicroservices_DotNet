@@ -26,6 +26,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\BuidingBlocks\BuidingBlocks\BuildingBlocks.csproj" />
+		<ProjectReference Include="..\..\..\BuidingBlocks\BuildingBlocks.Messaging\BuildingBlocks.Messaging.csproj" />
 	</ItemGroup>
 
 
