@@ -34,8 +34,15 @@ services:
       context: .
       dockerfile: services/Discount/Discount.Grpc/Dockerfile
 
+  yarpapigateways:
+    image: ${DOCKER_REGISTRY-}yarpapigateways
+    build:
+      context: .
+      dockerfile: ApiGateways/YarpApiGateways/Dockerfile
+
 volumes:
    postgres_catalog:     
    postgres_basket:     
+
 
 
